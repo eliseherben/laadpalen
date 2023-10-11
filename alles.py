@@ -316,7 +316,7 @@ with tab3:
     import math
     import plotly.figure_factory as ff
 
-    df = pd.read_csv(r"C:\Users\tjibb\Documents\school\jaar_3\minor\case_laadpaal\laadpaaldata.csv")
+    df = pd.read_csv("laadpaaldata.csv")
     df['TimeNotCharging']=df['ConnectedTime']- df['ChargeTime']
 
 
