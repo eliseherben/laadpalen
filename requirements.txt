@@ -8,3 +8,4 @@ folium==0.14.0
 streamlit-folium==0.15.0
 matplotlib==3.3.4
 ipywidgets==7.6.3
+ipython==7.22.0
