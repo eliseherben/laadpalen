@@ -33,8 +33,8 @@ tab1, tab2, tab3, tab4 = st.tabs(["Introductie", "API laadpalen", "Laadpalen dat
 # In[39]:
 
 
-with tab1:
-    ###Inladen API - kijk naar country code en maxresults
+# with tab1:
+#     ###Inladen API - kijk naar country code en maxresults
 
 
 # In[40]:
