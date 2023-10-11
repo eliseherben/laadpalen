@@ -35,13 +35,13 @@ tab1, tab2, tab3, tab4 = st.tabs(["Introductie", "API laadpalen", "Laadpalen dat
 
 with tab1:
     ###Inladen API - kijk naar country code en maxresults
-    response = requests.get("https://api.openchargemap.io/v3/poi/?output=json&countrycode=NL&maxresults=8000&verbose=false&key=93b912b5-9d70-4b1f-960b-fb80a4c9c017")
 
 
 # In[40]:
 
 
 with tab1:
+    response = requests.get("https://api.openchargemap.io/v3/poi/?output=json&countrycode=NL&maxresults=8000&verbose=false&key=93b912b5-9d70-4b1f-960b-fb80a4c9c017")
     responsejson  = response.json()
 
     ###Dataframe bevat kolom die een list zijn. 
