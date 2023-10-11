@@ -10,3 +10,4 @@ matplotlib==3.3.4
 ipywidgets==7.6.3
 ipython==7.22.0
 ipython-genutils==0.2.0
+ipython_genutils==0.2.0
