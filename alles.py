@@ -16,8 +16,6 @@ import streamlit as st
 import requests
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
-# import ipywidgets as widgets
-#from ipywidgets import interact
 from IPython.display import display
 import folium
 from streamlit_folium import folium_static
