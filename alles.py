@@ -325,7 +325,7 @@ with tab4:
 with tab4:
     import pandas as pd
     import numpy as np
-    from sklearn.linear_model import LinearRegression
+    #from sklearn.linear_model import LinearRegression
 
     # Een lijst met unieke brandstofcategorieën
     brandstofcategorieën = cumulatief['Brandstof omschrijving'].unique()
