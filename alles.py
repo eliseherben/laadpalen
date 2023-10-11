@@ -310,7 +310,7 @@ with tab3:
     import plotly.express as px
     import numpy as np
     import plotly.graph_objects as go
-    import seaborn as sns
+    # import seaborn as sns
     import matplotlib.pyplot as plt
     from plotly.subplots import make_subplots
     import math
