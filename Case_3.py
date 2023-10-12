@@ -371,13 +371,13 @@ with tab3:
 
     fig.update_yaxes(title='Frequentie')
 
-    fig.update_layout(bargap=0.05)
+    fig.update_layout(bargap=0.05, title = f'Histogram {selected_variable}')
     # Toon de plot
     st.plotly_chart(fig)
 
     # text
     if selected_variable == 'Totaal Energie':
-        fig.update_layout(title='Totaal energie gebruik')
+#         fig.update_layout(title='Totaal energie gebruik')
 #         st.title("""Totaal energie gebruik""")
 
         st.write("""
@@ -389,7 +389,7 @@ with tab3:
     """)
 
     if selected_variable == 'Verbindingstijd':
-        fig.update_layout(title='Connectie tijd')
+#         fig.update_layout(title='Connectie tijd')
 #         st.title("""Connectie tijd""")
 
         st.write("""
@@ -406,7 +406,7 @@ with tab3:
     """)
 
     if selected_variable == 'Oplaadtijd':
-        fig.update_layout(title='Oplaadtijd')
+#         fig.update_layout(title='Oplaadtijd')
 #         st.title("""Oplaadtijd""")
 
         st.write("""
@@ -424,7 +424,7 @@ with tab3:
         """)
 
     if selected_variable == 'Maximaal Vermogen':
-        fig.update_layout(title='Maximaal Vermogen')
+#         fig.update_layout(title='Maximaal Vermogen')
 #         st.title("""Maximaal Vermogen""")
 
         st.write("""
@@ -437,7 +437,7 @@ with tab3:
     """)
 
     if selected_variable == 'Niet oplaadtijd':
-        fig.update_layout(title='Niet oplaadtijd')
+#         fig.update_layout(title='Niet oplaadtijd')
 #         st.title("""Niet oplaadtijd""")
 
         st.write("""
