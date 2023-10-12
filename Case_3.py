@@ -486,6 +486,7 @@ with tab3:
     group_labels = ['distplot'] # name of the dataset
 
     fig = ff.create_distplot(hist_data, group_labels, show_rug= False, histnorm='probability density', colors=['rgb(128,177,211)', 'green'])
+    fig['data'][1]['line']['color'] = 'orange'  # Kleur van Groep B histogramlijn
 
 
     # Voeg lijnen toe voor het gemiddelde en de mediaan aan subplot 1
