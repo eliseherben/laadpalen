@@ -485,8 +485,8 @@ with tab3:
     hist_data = [x]
     group_labels = ['distplot'] # name of the dataset
 
-    fig = ff.create_distplot(hist_data, group_labels, show_rug= False, histnorm='probability density', colors=['rgb(128,177,211)', 'green'])
-    fig['data'][1]['line']['color'] = 'orange'  # Kleur van Groep B histogramlijn
+    fig = ff.create_distplot(hist_data, group_labels, show_rug= False, histnorm='probability density', colors=['rgb(128,177,211)'])
+    fig['data'][1]['line']['color'] = 'rgb(190,186,218)'  # Kleur van Groep B histogramlijn
 
 
     # Voeg lijnen toe voor het gemiddelde en de mediaan aan subplot 1
@@ -498,7 +498,7 @@ with tab3:
         y1=1,
         xref='x',
         yref='paper',
-        line=dict(color='red', dash='dash')
+        line=dict(color='rgb(251,128,114)', dash='dash')
     )
 
     fig.add_shape(
@@ -509,11 +509,11 @@ with tab3:
         y1=1,
         xref='x',
         yref='paper',
-        line=dict(color='green', dash='solid')
+        line=dict(color='rgb(141,211,199)', dash='solid')
     )
 
-    fig.add_trace(go.Scatter(x=[None], y=[None], mode='lines', line=dict(color='red', dash='dash'), name=f'Gemiddelde: {gemiddelde:.2f}'))
-    fig.add_trace(go.Scatter(x=[None], y=[None], mode='lines', line=dict(color='green', dash='solid'), name=f'Mediaan: {mediaan:.2f}'))
+    fig.add_trace(go.Scatter(x=[None], y=[None], mode='lines', line=dict(color='rgb(251,128,114)', dash='dash'), name=f'Gemiddelde: {gemiddelde:.2f}'))
+    fig.add_trace(go.Scatter(x=[None], y=[None], mode='lines', line=dict(color='rgb(141,211,199)', dash='solid'), name=f'Mediaan: {mediaan:.2f}'))
 
     # Stel de lay-out van de figuren in
     fig.update_layout(
