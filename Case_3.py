@@ -536,7 +536,7 @@ with tab3:
         y1=1,
         xref='x',
         yref='paper',
-        line=dict(color='179,222,106', dash='solid')
+        line=dict(color='rgb(179,222,106)', dash='solid')
     )
 
     fig.add_trace(go.Scatter(x=[None], y=[None], mode='lines', line=dict(color='rgb(251,128,114)', dash='dash'), name=f'Gemiddelde: {gemiddelde:.2f}'))
