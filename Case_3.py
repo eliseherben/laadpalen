@@ -462,7 +462,7 @@ with tab3:
 
     custom_colors = ['rgb(190,186,218)', 'rgb(251,128,114)', 'rgb(128,177,211)', 'rgb(141,211,199)', 'rgb(253,180,98)']
     # Maak een ECDF-plot voor de gefilterde gegevens met Plotly Express
-    fig = px.histogram(filtered_df, x=selected_variable, nbins=num_bins, olor_discrete_sequence=custom_colors)
+    fig = px.histogram(filtered_df, x=selected_variable, nbins=num_bins, color_discrete_sequence=custom_colors)
 
     fig.update_xaxes(title=selected_variable)
 
