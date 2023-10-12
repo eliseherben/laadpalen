@@ -175,6 +175,17 @@ with tab1:
 
 
 with tab2:
+    @st.cache
+    def get_data():
+        # Simuleer het ophalen van gegevens (bijv. van een database of API)
+        Laadpalen = pd.read_csv('data.csv')
+        return Laadpalen
+
+
+# In[ ]:
+
+
+with tab2:
     st.title("Kaart met bezetting per Laadpaal")
     # streamlit een titel geven
     st.write('Om inzicht te krijgen in niet alleen de plek van de laadpaal, maar ook de bezetting per',
@@ -222,7 +233,8 @@ with tab2:
         else:
             return 'white'
 
-    Laadpalen = pd.read_csv('data.csv')
+    Laadpalen = get_data()
+#     Laadpalen = pd.read_csv('data.csv')
     # Laadpalen dataframe halen uit de data.csv. Als dit niet lukt run dan eerst in python stream.py.
 
     def coordinaten(regio):
