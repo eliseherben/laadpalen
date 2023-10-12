@@ -312,7 +312,7 @@ with tab2:
     """
 
     for value, kleur in [('Groningen', 'green'), ('Friesland', 'blue'), ('Drenthe', 'red'), ('Noord-Holland', 'orange'), ('Overijssel', 'yellow'), ('Zuid-Holland', 'maroon'), ('Utrecht', 'lime'), ('Flevoland', 'aqua'), ('Gelderland', 'darkblue'), ('Zeeland', 'purple'), ('Noord-Brabant', 'black'), ('Limburg', 'crimson')]:
-        legend += f'<p style="font-size: 10px;"><i style="background:{kleur}; border-radius:50%; width: 10px; height: 10px; display:inline-block;"></i> {value}</p>'
+        legend += f'<p style="font-size: 12px;"><i style="background:{kleur}; border-radius:50%; width: 10px; height: 10px; display:inline-block;"></i> {value}</p>'
 
     st.markdown(legend, unsafe_allow_html=True)
 
