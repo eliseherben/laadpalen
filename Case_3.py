@@ -276,7 +276,7 @@ with tab2:
     long_lat = coordinaten(regio)
     zoom = zoomstart(regio)
     # Klaarzetten van gegevens voor de kaart.
-
+    folium.TileLayer(tiles='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', attr = 'CartoDB.Positron').add_to(m)
     m = folium.Map(location=long_lat, zoom_start=zoom)
     # Maken van een folium map en inzoomen en centeren op Nederland.  
     for i in Laadpalen.index:
@@ -292,7 +292,6 @@ with tab2:
 
     st_map = st_folium(m, width=700)
     
-    folium.TileLayer(tiles='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', attr = 'CartoDB.Positron').add_to(m)
     # Folium map toevoegen aan streamlit.    
     st.write("""
             Door te kijken naar de kaart is de volgende conclusie getrokken: De trend is dat in grote gemeentes
@@ -462,7 +461,7 @@ with tab3:
     filtered_df = df2[(df2[selected_variable] >= range_variable[0]) & (df2[selected_variable] <= range_variable[1])]
 
     # Maak een ECDF-plot voor de gefilterde gegevens met Plotly Express
-    fig = px.histogram(filtered_df, x=selected_variable, nbins=num_bins)
+    fig = px.histogram(filtered_df, x=selected_variable, nbins=num_bins, color='rgb(128,177,211)')
 
     fig.update_xaxes(title=selected_variable)
 
@@ -513,7 +512,7 @@ with tab3:
     group_labels = ['distplot'] # name of the dataset
 
     fig = ff.create_distplot(hist_data, group_labels, show_rug= False, histnorm='probability density', colors=['rgba(128,177,211,0.5)'])
-    fig['data'][1]['line']['color'] = 'rgb(190,186,218)'  # Kleur van Groep B histogramlijn
+    fig['data'][1]['line']['color'] = 'rgb(188,128,189)'  # Kleur van Groep B histogramlijn
 
 
     # Voeg lijnen toe voor het gemiddelde en de mediaan aan subplot 1
@@ -536,11 +535,11 @@ with tab3:
         y1=1,
         xref='x',
         yref='paper',
-        line=dict(color='rgb(141,211,199)', dash='solid')
+        line=dict(color='rgb(253,180,98)', dash='solid')
     )
 
     fig.add_trace(go.Scatter(x=[None], y=[None], mode='lines', line=dict(color='rgb(251,128,114)', dash='dash'), name=f'Gemiddelde: {gemiddelde:.2f}'))
-    fig.add_trace(go.Scatter(x=[None], y=[None], mode='lines', line=dict(color='rgb(141,211,199)', dash='solid'), name=f'Mediaan: {mediaan:.2f}'))
+    fig.add_trace(go.Scatter(x=[None], y=[None], mode='lines', line=dict(color='rgb(253,180,98)', dash='solid'), name=f'Mediaan: {mediaan:.2f}'))
 
     # Stel de lay-out van de figuren in
     fig.update_layout(
