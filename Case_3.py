@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[7]:
 
 
 # pip install streamlit-folium
 
 
-# In[3]:
+# In[8]:
 
 
 import pandas as pd
@@ -28,26 +28,28 @@ import math
 import plotly.figure_factory as ff
 
 
-# In[4]:
+# In[9]:
 
 
 tab1, tab2, tab3, tab4 = st.tabs(["Introductie", "API laadpalen", "Laadpalen dataset", "RDW datasets"])
 
 
-# In[5]:
+# In[10]:
 
 
 with tab1:
-    Laadpalen = pd.read_csv("Laadpalen.csv")
+    @st.cache
+    def fetch_data():
+        # Simuleer het ophalen van gegevens (bijv. van een database of API)
+        Laadpalen = pd.read_csv("Laadpalen.csv")
+        Laadpalen['Type Laadpaal'] = Laadpalen['CurrentTypeID']
+        Laadpalen['Snelladen'] = Laadpalen['Level.IsFastChargeCapable']
+        Laadpalen['Niveau Laadpaal'] = Laadpalen['LevelID']
+        return Laadpalen
 
-
-# In[5]:
-
-
-with tab1:
-    Laadpalen['Type Laadpaal'] = Laadpalen['CurrentTypeID']
-    Laadpalen['Snelladen'] = Laadpalen['Level.IsFastChargeCapable']
-    Laadpalen['Niveau Laadpaal'] = Laadpalen['LevelID']
+    # Roep de gecachte functie aan
+  
+        
 
 
 # In[12]:
@@ -55,7 +57,7 @@ with tab1:
 
 with tab1:
 
-
+    Laadpalen = fetch_data()
     # Titel van de app
     st.title('Laadpalen in Nederland')
 
