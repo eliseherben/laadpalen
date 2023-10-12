@@ -485,7 +485,7 @@ with tab3:
     hist_data = [x]
     group_labels = ['distplot'] # name of the dataset
 
-    fig = ff.create_distplot(hist_data, group_labels, show_rug= False, histnorm='probability density', colors=['rgb(128,177,211)'])
+    fig = ff.create_distplot(hist_data, group_labels, show_rug= False, histnorm='probability density', colors=['rgb(217,217,217)'])
     fig['data'][1]['line']['color'] = 'rgb(190,186,218)'  # Kleur van Groep B histogramlijn
 
 
