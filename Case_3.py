@@ -460,8 +460,9 @@ with tab3:
     # Filter de gegevens op basis van het geselecteerde bereik en variabele
     filtered_df = df2[(df2[selected_variable] >= range_variable[0]) & (df2[selected_variable] <= range_variable[1])]
 
+    costum_colors = ['rgb(128,177,211)', 'rgb(128,177,211)', 'rgb(128,177,211)', 'rgb(128,177,211)', 'rgb(128,177,211)']
     # Maak een ECDF-plot voor de gefilterde gegevens met Plotly Express
-    fig = px.histogram(filtered_df, x=selected_variable, nbins=num_bins, color_discrete_sequence='rgb(128,177,211)')
+    fig = px.histogram(filtered_df, x=selected_variable, nbins=num_bins, color_discrete_sequence=costum_colors)
 
     fig.update_xaxes(title=selected_variable)
 
