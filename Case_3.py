@@ -351,6 +351,29 @@ with tab3:
     selected_variable = st.selectbox("Selecteer een variabele", df2.columns)
 
 
+    # Veronderstel dat je ook een slider hebt voor het instellen van het bereik voor de geselecteerde variabele
+    range_variable = st.slider(f"Bereik van {selected_variable}", min_value=df2[selected_variable].min(), max_value=df2[selected_variable].max(), value=(df2[selected_variable].min(), df2[selected_variable].max())
+                              ,format="%d")
+
+    # Voeg een slider toe voor het aantal bins
+    num_bins = st.slider("Aantal groepen", min_value=1, max_value=20, value=20, format="", step=2)
+
+    # Bereken het aantal bins op basis van het huidige bereik en de sliderwaarde
+    bin_width = (range_variable[1] - range_variable[0]) / num_bins
+
+    # Filter de gegevens op basis van het geselecteerde bereik en variabele
+    filtered_df = df2[(df2[selected_variable] >= range_variable[0]) & (df2[selected_variable] <= range_variable[1])]
+
+    # Maak een ECDF-plot voor de gefilterde gegevens met Plotly Express
+    fig = px.histogram(filtered_df, x=selected_variable, nbins=num_bins)
+
+    fig.update_xaxes(title=selected_variable)
+
+    fig.update_yaxes(title='Frequentie')
+
+    fig.update_layout(bargap=0.05)
+    # Toon de plot
+    st.plotly_chart(fig)
 
     # text
     if selected_variable == 'Totaal Energie':
@@ -432,29 +455,29 @@ with tab3:
     """)
 
 
-    # Veronderstel dat je ook een slider hebt voor het instellen van het bereik voor de geselecteerde variabele
-    range_variable = st.slider(f"Bereik van {selected_variable}", min_value=df2[selected_variable].min(), max_value=df2[selected_variable].max(), value=(df2[selected_variable].min(), df2[selected_variable].max())
-                              ,format="%d")
+#     # Veronderstel dat je ook een slider hebt voor het instellen van het bereik voor de geselecteerde variabele
+#     range_variable = st.slider(f"Bereik van {selected_variable}", min_value=df2[selected_variable].min(), max_value=df2[selected_variable].max(), value=(df2[selected_variable].min(), df2[selected_variable].max())
+#                               ,format="%d")
 
-    # Voeg een slider toe voor het aantal bins
-    num_bins = st.slider("Aantal groepen", min_value=1, max_value=20, value=20, format="", step=2)
+#     # Voeg een slider toe voor het aantal bins
+#     num_bins = st.slider("Aantal groepen", min_value=1, max_value=20, value=20, format="", step=2)
 
-    # Bereken het aantal bins op basis van het huidige bereik en de sliderwaarde
-    bin_width = (range_variable[1] - range_variable[0]) / num_bins
+#     # Bereken het aantal bins op basis van het huidige bereik en de sliderwaarde
+#     bin_width = (range_variable[1] - range_variable[0]) / num_bins
 
-    # Filter de gegevens op basis van het geselecteerde bereik en variabele
-    filtered_df = df2[(df2[selected_variable] >= range_variable[0]) & (df2[selected_variable] <= range_variable[1])]
+#     # Filter de gegevens op basis van het geselecteerde bereik en variabele
+#     filtered_df = df2[(df2[selected_variable] >= range_variable[0]) & (df2[selected_variable] <= range_variable[1])]
 
-    # Maak een ECDF-plot voor de gefilterde gegevens met Plotly Express
-    fig = px.histogram(filtered_df, x=selected_variable, nbins=num_bins)
+#     # Maak een ECDF-plot voor de gefilterde gegevens met Plotly Express
+#     fig = px.histogram(filtered_df, x=selected_variable, nbins=num_bins)
 
-    fig.update_xaxes(title=selected_variable)
+#     fig.update_xaxes(title=selected_variable)
 
-    fig.update_yaxes(title='Frequentie')
+#     fig.update_yaxes(title='Frequentie')
 
-    fig.update_layout(bargap=0.05)
-    # Toon de plot
-    st.plotly_chart(fig)
+#     fig.update_layout(bargap=0.05)
+#     # Toon de plot
+#     st.plotly_chart(fig)
 
 
 
