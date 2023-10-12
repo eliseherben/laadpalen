@@ -543,73 +543,12 @@ with tab3:
     st.plotly_chart(fig)
 
 
-# In[13]:
-
-
-with tab3:
-    # Selecteer de numerieke kolommen voor correlatieanalyse
-
-    numerical_columns = ['Totaal Energie', 'Verbindingstijd', 'Oplaadtijd', 'Maximaal Vermogen', 'Niet oplaadtijd']
-
-
-    # Bereken de correlatiematrix
-
-    correlation_matrix = df[numerical_columns].corr()
-
-
-    fig1 = go.Figure(data=go.Heatmap(
-
-                       z=correlation_matrix.values,
-
-                       x=numerical_columns,
-
-                       y=numerical_columns,
-
-                       colorscale='Blues',
-
-                       zmin=0, zmax=1,
-                       text=correlation_matrix.values, 
-                       hoverongaps=True))
-
-
-    fig1.update_xaxes(tickangle=90)
-
-    # text
-
-    st.title('Correlatie Analyse')
-
-    st.write("""
-        Als we naar de onderstaande correlatiematrix kijken zien we een aantal interessante patronen:
-        1. Totale energie en piekstroom vertonen een sterke correlatie. Dit is logisch omdat totale energie wordt uitgedrukt in wattuur (Wh),
-        wat het product is van piekstroom (in watt) en laadtijd (in uur). 
-        Met andere woorden, de totale energie die wordt verbruikt, is direct gerelateerd aan zowel de hoogste stroomsterkte als de duur van het laden.
-        2. Verder zien we dat totale energie en laadtijd ook een sterke correlatie hebben. Dit komt omdat, zoals eerder vermeld, 
-        de totale energie wordt bepaald door de hoeveelheid stroom (piekstroom) vermenigvuldigd met de tijd dat het laden plaatsvindt. 
-        Dit bevestigt het verband tussen de totale energieconsumptie en de tijd die wordt besteed aan het laden.
-        3. Connectietijd vertoont een sterke correlatie met niet-laadtijd. 
-        Dit is begrijpelijk omdat wanneer een voertuig gedurende langere perioden is verbonden met het laadstation (connectietijd), 
-        er een grotere kans is dat er tijdsperiodes zijn waarin het voertuig niet actief wordt opgeladen. Het omgekeerde geldt ook: 
-        als er meer niet-laadtijd is, kan dit wijzen op langere periodes waarin het voertuig is verbonden, maar niet actief wordt geladen.
-        4. Er is ook een sterke correlatie tussen laadtijd en totale energie. 
-        Dit komt doordat er een maximale hoeveelheid energie is die een elektrisch voertuig kan opnemen, 
-        en daarom zal een groter totaal energieverbruik (Wh) meer tijd (uren) vereisen om te worden geleverd.
-        5. Ten slotte zien we een sterke correlatie tussen maximale stroom en totale energie.
-        Dit is begrijpelijk omdat een hogere piekstroom het mogelijk maakt om een grotere hoeveelheid energie in een kortere tijd te leveren, 
-        wat resulteert in een hoger totaal energieverbruik.
-        Deze inzichten benadrukken de onderlinge relaties tussen verschillende variabelen in de context van elektrische voertuiglading, 
-        wat nuttig kan zijn voor het begrijpen en optimaliseren van laadprocessen. 
-    """)
-
-    # Toon het bar plot in Streamlit
-
-    st.plotly_chart(fig1)
-
-
 # In[43]:
 
 
-merken = pd.read_csv("merken.csv")
-cumulatief = pd.read_csv("cumulatief.csv")
+with tab4:
+    merken = pd.read_csv("merken.csv")
+    cumulatief = pd.read_csv("cumulatief.csv")
 
 
 # In[44]:
