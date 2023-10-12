@@ -307,12 +307,15 @@ with tab2:
     """)
     # Uitleg over de kaart.
     legend = """
-        <div style="position: fixed; bottom: 50px; left: 50px; z-index: 1000; background-color: white; padding: 10px; border: 2px solid gray; border-radius: 5px;">
-        <h4>Legenda</h4>
-        """
+    <div style="position: fixed; bottom: 50px; left: 50px; z-index: 1000; background-color: white; padding: 10px; border: 2px solid gray; border-radius: 5px;">
+    <h4 style="font-size: 10px;">Legenda</h4>
+    """
+
     for value, kleur in [('Groningen', 'green'), ('Friesland', 'blue'), ('Drenthe', 'red'), ('Noord-Holland', 'orange'), ('Overijssel', 'yellow'), ('Zuid-Holland', 'maroon'), ('Utrecht', 'lime'), ('Flevoland', 'aqua'), ('Gelderland', 'darkblue'), ('Zeeland', 'purple'), ('Noord-Brabant', 'black'), ('Limburg', 'crimson')]:
-                legend += f'<p><i style="background:{kleur}; border-radius:50%; width: 5px; height: 5px; display:inline-block;"></i> {value}</p>'
+        legend += f'<p style="font-size: 10px;"><i style="background:{kleur}; border-radius:50%; width: 10px; height: 10px; display:inline-block;"></i> {value}</p>'
+
     st.markdown(legend, unsafe_allow_html=True)
+
 # In[52]:
 
 
