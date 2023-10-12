@@ -22,6 +22,10 @@ from IPython.display import display
 import folium
 from streamlit_folium import folium_static
 from streamlit_folium import st_folium
+import numpy as np
+from plotly.subplots import make_subplots
+import math
+import plotly.figure_factory as ff
 
 
 # In[4]:
@@ -169,15 +173,6 @@ with tab1:
 
 
 with tab2:
-    import folium
-    # Importeer folium om kaarten te maken.
-    import pandas as pd
-    # Importeer pandas voor het maken van dataframes.
-    import streamlit as st
-    # Importeer streamlit om de applicatie te runnen in de browser.
-    from streamlit_folium import st_folium
-    # Importeren van een functie om de folium kaart in de streamlit app te krijgen. 
-
     st.title("Kaart met bezetting per Laadpaal")
     # streamlit een titel geven
     st.write('Om inzicht te krijgen in niet alleen de plek van de laadpaal, maar ook de bezetting per',
@@ -319,16 +314,6 @@ with tab2:
 
 
 with tab3:
-    import pandas as pd
-    import streamlit as st
-    import plotly.express as px
-    import numpy as np
-    import plotly.graph_objects as go
-#     import seaborn as sns
-    import matplotlib.pyplot as plt
-    from plotly.subplots import make_subplots
-    import math
-    import plotly.figure_factory as ff
 
     df = pd.read_csv("laadpaaldata.csv")
     df['Niet oplaadtijd']=df['ConnectedTime']- df['ChargeTime']
@@ -722,17 +707,17 @@ with tab4:
 
     elif display_type == 'Cumulatief':
         # Voeg een cumulatieve somkolom toe
-        cumulatief["Aantal auto's cumulatief"] = cumulatief.groupby('Brandstof omschrijving')["Aantal auto's"].cumsum()
+#         cumulatief["Aantal auto's cumulatief"] = cumulatief.groupby('Brandstof omschrijving')["Aantal auto's"].cumsum()
 
         # Maak een cumulatief lijndiagram voor alle brandstofcategorieën met Plotly
         fig = px.line(cumulatief, x='Bouwjaar', y="Aantal auto's cumulatief", color='Brandstof omschrijving', color_discrete_map=fuel_colors, title="Aantal auto's per brandstof omschrijving cumulatief")
 
     elif display_type == 'Relatief Cumulatief':
         # Voeg een cumulatieve somkolom toe
-        cumulatief["Aantal auto's cumulatief"] = cumulatief.groupby('Brandstof omschrijving')["Aantal auto's"].cumsum()
+#         cumulatief["Aantal auto's cumulatief"] = cumulatief.groupby('Brandstof omschrijving')["Aantal auto's"].cumsum()
 
         # Bereken de relatief cumulatieve waarden (percentage van de totale cumulatieve waarde)
-        cumulatief['Relatief Cumulatief'] = cumulatief.groupby('Brandstof omschrijving')["Aantal auto's cumulatief"].transform(lambda x: x / x.max() * 100)
+#         cumulatief['Relatief Cumulatief'] = cumulatief.groupby('Brandstof omschrijving')["Aantal auto's cumulatief"].transform(lambda x: x / x.max() * 100)
 
         # Maak een lijndiagram voor relatief cumulatieve gegevens voor alle brandstofcategorieën met Plotly
         fig = px.line(cumulatief, x='Bouwjaar', y='Relatief Cumulatief', color='Brandstof omschrijving', color_discrete_map=fuel_colors, title="Aantal auto's per brandstof omschrijving relatief cumulatief")
@@ -767,8 +752,7 @@ with tab4:
 
 with tab4:
     voorspelling = pd.read_csv("voorspelling.csv")
-    import plotly.graph_objects as go
-    import numpy as np
+
 
 #     diesel = voorspelling[(voorspelling['Brandstof omschrijving'] == 'Diesel') & (voorspelling['Bouwjaar'] > 2018)]
 #     benzine = voorspelling[(voorspelling['Brandstof omschrijving'] == 'Benzine') & (voorspelling['Bouwjaar'] > 2018)]
