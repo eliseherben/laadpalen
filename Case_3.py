@@ -308,7 +308,7 @@ with tab2:
     # Uitleg over de kaart.
     legend = """
     <div style="position: fixed; bottom: 50px; left: 50px; z-index: 1000; background-color: white; padding: 10px; border: 2px solid gray; border-radius: 5px;">
-    <h4 style="font-size: 10px;">Legenda</h4>
+    <h4 style="font-size: 12px;">Legenda</h4>
     """
 
     for value, kleur in [('Groningen', 'green'), ('Friesland', 'blue'), ('Drenthe', 'red'), ('Noord-Holland', 'orange'), ('Overijssel', 'yellow'), ('Zuid-Holland', 'maroon'), ('Utrecht', 'lime'), ('Flevoland', 'aqua'), ('Gelderland', 'darkblue'), ('Zeeland', 'purple'), ('Noord-Brabant', 'black'), ('Limburg', 'crimson')]:
