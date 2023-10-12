@@ -306,6 +306,10 @@ with tab2:
              zijn, zouden er volgende keer meer palen meegenomen kunnen worden voor een beter beeld.
     """)
     # Uitleg over de kaart.
+    legend = """
+        <div style="position: fixed; bottom: 50px; left: 50px; z-index: 1000; background-color: white; padding: 10px; border: 2px solid gray; border-radius: 5px;">
+        <h4>Legenda</h4>
+        """
     for value, kleur in [('Groningen', 'green'), ('Friesland', 'blue'), ('Drenthe', 'red'), ('Noord-Holland', 'orange'), ('Overijssel', 'yellow'), ('Zuid-Holland', 'maroon'), ('Utrecht', 'lime'), ('Flevoland', 'aqua'), ('Gelderland', 'darkblue'), ('Zeeland', 'purple'), ('Noord-Brabant', 'black'), ('Limburg', 'crimson')]:
                 legend += f'<p><i style="background:{kleur}; border-radius:50%; width: 20px; height: 20px; display:inline-block;"></i> {value}</p>'
     st.markdown(legend, unsafe_allow_html=True)
