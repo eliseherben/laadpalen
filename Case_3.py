@@ -38,18 +38,7 @@ tab1, tab2, tab3, tab4 = st.tabs(["Introductie", "API laadpalen", "Laadpalen dat
 
 
 with tab1:
-    @st.cache
-    def fetch_data():
-        # Simuleer het ophalen van gegevens (bijv. van een database of API)
-        Laadpalen = pd.read_csv("Laadpalen.csv")
-        Laadpalen['Type Laadpaal'] = Laadpalen['CurrentTypeID']
-        Laadpalen['Snelladen'] = Laadpalen['Level.IsFastChargeCapable']
-        Laadpalen['Niveau Laadpaal'] = Laadpalen['LevelID']
-        return Laadpalen
-
-    # Roep de gecachte functie aan
-  
-        
+    Laadpalen = pd.read_csv("Laadpalen.csv")
 
 
 # In[12]:
@@ -57,7 +46,6 @@ with tab1:
 
 with tab1:
 
-    Laadpalen = fetch_data()
     # Titel van de app
     st.title('Laadpalen in Nederland')
 
@@ -175,17 +163,7 @@ with tab1:
 
 
 with tab2:
-    @st.cache
-    def get_data():
-        # Simuleer het ophalen van gegevens (bijv. van een database of API)
-        Laadpalen = pd.read_csv('data.csv')
-        return Laadpalen
-
-
-# In[ ]:
-
-
-with tab2:
+    
     st.title("Kaart met bezetting per Laadpaal")
     # streamlit een titel geven
     st.write('Om inzicht te krijgen in niet alleen de plek van de laadpaal, maar ook de bezetting per',
@@ -233,8 +211,7 @@ with tab2:
         else:
             return 'white'
 
-    Laadpalen = get_data()
-#     Laadpalen = pd.read_csv('data.csv')
+    Laadpalen = pd.read_csv('data.csv')
     # Laadpalen dataframe halen uit de data.csv. Als dit niet lukt run dan eerst in python stream.py.
 
     def coordinaten(regio):
@@ -659,20 +636,11 @@ with tab4:
         fig = px.line(cumulatief, x='Bouwjaar', y="Aantal auto's", color='Brandstof omschrijving', color_discrete_map=fuel_colors, title="Aantal auto's per brandstof omschrijving")
 
     elif display_type == 'Cumulatief':
-        # Voeg een cumulatieve somkolom toe
-#         cumulatief["Aantal auto's cumulatief"] = cumulatief.groupby('Brandstof omschrijving')["Aantal auto's"].cumsum()
-
         # Maak een cumulatief lijndiagram voor alle brandstofcategorieën met Plotly
         fig = px.line(cumulatief, x='Bouwjaar', y="Aantal auto's cumulatief", color='Brandstof omschrijving', color_discrete_map=fuel_colors, title="Aantal auto's per brandstof omschrijving cumulatief")
 
     elif display_type == 'Relatief Cumulatief':
-        # Voeg een cumulatieve somkolom toe
-#         cumulatief["Aantal auto's cumulatief"] = cumulatief.groupby('Brandstof omschrijving')["Aantal auto's"].cumsum()
-
-        # Bereken de relatief cumulatieve waarden (percentage van de totale cumulatieve waarde)
-#         cumulatief['Relatief Cumulatief'] = cumulatief.groupby('Brandstof omschrijving')["Aantal auto's cumulatief"].transform(lambda x: x / x.max() * 100)
-
-        # Maak een lijndiagram voor relatief cumulatieve gegevens voor alle brandstofcategorieën met Plotly
+      # Maak een lijndiagram voor relatief cumulatieve gegevens voor alle brandstofcategorieën met Plotly
         fig = px.line(cumulatief, x='Bouwjaar', y='Relatief Cumulatief', color='Brandstof omschrijving', color_discrete_map=fuel_colors, title="Aantal auto's per brandstof omschrijving relatief cumulatief")
 
     # Voeg stippen toe op de meetpunten
