@@ -41,10 +41,20 @@ with tab1:
     Laadpalen = pd.read_csv("Laadpalen.csv")
 
 
+# In[ ]:
+
+
+with tab1:
+    Laadpalen['Type Laadpaal'] = Laadpalen['CurrentTypeID']
+    Laadpalen['Snelladen'] = Laadpalen['Level.IsFastChargeCapable']
+    Laadpalen['Niveau Laadpaal'] = Laadpalen['LevelID']
+
+
 # In[12]:
 
 
 with tab1:
+
 
     # Titel van de app
     st.title('Laadpalen in Nederland')
