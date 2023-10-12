@@ -460,9 +460,8 @@ with tab3:
     # Filter de gegevens op basis van het geselecteerde bereik en variabele
     filtered_df = df2[(df2[selected_variable] >= range_variable[0]) & (df2[selected_variable] <= range_variable[1])]
 
-    custom_colors = ['rgb(190,186,218)', 'rgb(251,128,114)', 'rgb(128,177,211)', 'rgb(141,211,199)', 'rgb(253,180,98)']
     # Maak een ECDF-plot voor de gefilterde gegevens met Plotly Express
-    fig = px.histogram(filtered_df, x=selected_variable, nbins=num_bins, color_discrete_sequence=custom_colors)
+    fig = px.histogram(filtered_df, x=selected_variable, nbins=num_bins, color_discrete_sequence='rgb(128,177,211)')
 
     fig.update_xaxes(title=selected_variable)
 
@@ -536,11 +535,11 @@ with tab3:
         y1=1,
         xref='x',
         yref='paper',
-        line=dict(color='rgb(253,180,98)', dash='solid')
+        line=dict(color='179,222,106', dash='solid')
     )
 
     fig.add_trace(go.Scatter(x=[None], y=[None], mode='lines', line=dict(color='rgb(251,128,114)', dash='dash'), name=f'Gemiddelde: {gemiddelde:.2f}'))
-    fig.add_trace(go.Scatter(x=[None], y=[None], mode='lines', line=dict(color='rgb(253,180,98)', dash='solid'), name=f'Mediaan: {mediaan:.2f}'))
+    fig.add_trace(go.Scatter(x=[None], y=[None], mode='lines', line=dict(color='rgb(179,222,106)', dash='solid'), name=f'Mediaan: {mediaan:.2f}'))
 
     # Stel de lay-out van de figuren in
     fig.update_layout(
@@ -755,7 +754,7 @@ with tab4:
 
     # Introductietekst
     introductietekst = """
-    Verken onze visualisatie van de voorspelde aantallen voertuigen voor het jaar 2023, gespecificeerd per brandstofcategorie. Deze grafiek biedt inzicht in de toekomstige ontwikkelingen van voertuigaantallen en helpt bij het begrijpen van de verwachte veranderingen op basis van historische gegevens en voorspellingsmodellen. Ontdek hoe benzine, diesel, elektriciteit en hybride voertuigen zich naar verwachting zullen ontwikkelen in het komende jaar. Deze grafiek is gebaseerd op nauwkeurige voorspellingen en biedt een overzicht van wat we kunnen verwachten in de autosector in 2023.
+    In onderstaande grafiek zijn het aantal hybride en elektrische auto's voorspelt in de jaren 2023 tm 2030. Bij de voorspelling is onder andere de informatie van voorgaande jaren gebruikt. Daarnaast is voor de voorspelling ook het aantal laadpalen in voorgaande jaren gebruikt. Er is voorspelt op basis van een lineair regressie model. De voorspelling is getoond in een donkere kleur en de informatie over het aantal auto's in de voorgaande jaren is aangegeven in een lichtere kleur. 
     """
 
     st.markdown(introductietekst)
