@@ -441,7 +441,7 @@ with tab3:
 
     fig.update_yaxes(title='Frequentie')
 
-    fig.update_layout(bargap=0.05, title = f'Histogram va {selected_variable}')
+    fig.update_layout(bargap=0.05, title = f'Histogram {selected_variable}')
     # Toon de plot
     st.plotly_chart(fig)
 
@@ -487,6 +487,7 @@ with tab3:
 
     fig = ff.create_distplot(hist_data, group_labels, show_rug= False)
 
+    fig['data'][0]['line_color'] = 'rgb(128,177,211)'  # Pas de kleur aan naar blauw
 
 
 
