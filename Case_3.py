@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[2]:
 
 
 # pip install streamlit-folium
 
 
-# In[2]:
+# In[3]:
 
 
 import pandas as pd
@@ -24,13 +24,13 @@ from streamlit_folium import folium_static
 from streamlit_folium import st_folium
 
 
-# In[3]:
+# In[4]:
 
 
 tab1, tab2, tab3, tab4 = st.tabs(["Introductie", "API laadpalen", "Laadpalen dataset", "RDW datasets"])
 
 
-# In[4]:
+# In[5]:
 
 
 with tab1:
@@ -288,7 +288,7 @@ with tab2:
     # Uitleg over de kaart.
 
 
-# In[11]:
+# In[6]:
 
 
 with tab3:
@@ -354,7 +354,8 @@ with tab3:
 
     # text
     if selected_variable == 'Totaal Energie':
-        st.title("""Totaal energie gebruik""")
+        fig.update_layout(title='Totaal energie gebruik')
+#         st.title("""Totaal energie gebruik""")
 
         st.write("""
         In de onderstaande histogram wordt het totale energieverbruik weergegeven. 
@@ -365,7 +366,8 @@ with tab3:
     """)
 
     if selected_variable == 'Verbindingstijd':
-        st.title("""Connectie tijd""")
+        fig.update_layout(title='Connectie tijd')
+#         st.title("""Connectie tijd""")
 
         st.write("""
         In de onderstaande histogram wordt de verbindingsduur weergegeven. Opvallend is dat er na 5 uur een daling te zien is. 
@@ -381,7 +383,8 @@ with tab3:
     """)
 
     if selected_variable == 'Oplaadtijd':
-        st.title("""Oplaadtijd""")
+        fig.update_layout(title='Oplaadtijd')
+#         st.title("""Oplaadtijd""")
 
         st.write("""
             In de onderstaande histogram wordt de laadtijd weergegeven. Wat direct opvalt, is dat deze histogram sterk geconcentreerd is aan de linkerkant, 
@@ -398,7 +401,8 @@ with tab3:
         """)
 
     if selected_variable == 'Maximaal Vermogen':
-        st.title("""Maximaal Vermogen""")
+        fig.update_layout(title='Maximaal Vermogen')
+#         st.title("""Maximaal Vermogen""")
 
         st.write("""
         In de onderstaande histogram is de frequentie te zien over het maximaal gevraagde vermogen per laadpaal. Wat als eerste opvalt
@@ -410,7 +414,8 @@ with tab3:
     """)
 
     if selected_variable == 'Niet oplaadtijd':
-        st.title("""Niet oplaadtijd""")
+        fig.update_layout(title='Niet oplaadtijd')
+#         st.title("""Niet oplaadtijd""")
 
         st.write("""
             In het onderstaande histogram wordt de tijd weergegeven dat auto's weliswaar nog verbonden zijn met het laadstation, maar niet meer aan het laden zijn. 
